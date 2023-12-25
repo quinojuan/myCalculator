@@ -32,8 +32,11 @@ export const useCalculadora = () => {
         // Evaluar si es diferente de cero y no tiene un punto
       } else if (numeroTexto !== '0' && !numero.includes('.')) {
         setNumero(numeroTexto);
+        // Evitar 000000.0
       } else if (numeroTexto === '0' && !numero.includes('.')) {
         setNumero(numero);
+      } else {
+        setNumero(numero + numeroTexto);
       }
     } else {
       setNumero(numero + numeroTexto);
@@ -135,6 +138,6 @@ export const useCalculadora = () => {
     btnMultiplicar,
     btnRestar,
     btnSumar,
-    calcular
+    calcular,
   };
 };
